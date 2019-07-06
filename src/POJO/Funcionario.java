@@ -9,6 +9,7 @@ public class Funcionario extends Pessoa{
     private String Senha;
     private float custoporhora;
     private float porcetagemComicao;
+    private float comissao;
     /*construdo*/
 
     public Funcionario() {
@@ -29,6 +30,7 @@ public class Funcionario extends Pessoa{
         this.Senha = Senha;
         this.custoporhora = custoporhora;
         this.porcetagemComicao = porcetagemComicao;
+        
     }
     /*funçao*/
 

@@ -27,13 +27,31 @@ public class Fornecedor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(160, 350, 730, 190);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/20222bd9b2b514492c38b24147f100e2.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-120, -10, 1600, 839);
+        jLabel1.setBounds(-100, -10, 1600, 839);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -41,5 +59,7 @@ public class Fornecedor extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

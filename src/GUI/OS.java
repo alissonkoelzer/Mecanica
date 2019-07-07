@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author aliso
@@ -16,7 +18,13 @@ public class OS extends javax.swing.JInternalFrame {
      */
     public OS() {
         initComponents();
+        
     }
+     public OS(JDesktopPane PainelPri  ) {
+        initComponents();
+      
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,53 +36,24 @@ public class OS extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        dtprevista = new javax.swing.JFormattedTextField();
-        tipo_pagamento = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_pecas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         cpf = new javax.swing.JTextField();
         buscar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         nome_os = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         sobrenome_os = new javax.swing.JLabel();
         remover = new javax.swing.JButton();
         editar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        salvar = new javax.swing.JButton();
-        cancelar = new javax.swing.JButton();
+        novo = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         adicionar = new javax.swing.JButton();
 
+        setClosable(true);
         getContentPane().setLayout(null);
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Data prevista");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 80, 120, 17);
-
-        try {
-            dtprevista.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        dtprevista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dtprevistaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(dtprevista);
-        dtprevista.setBounds(170, 80, 130, 22);
-
-        tipo_pagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Forma de pagamento", "Cartão de crédito ", "Cartão de débito", "Dinheiro", "Cheque", "Boleto" }));
-        jPanel1.add(tipo_pagamento);
-        tipo_pagamento.setBounds(380, 80, 190, 22);
 
         tb_pecas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,58 +69,43 @@ public class OS extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tb_pecas);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(130, 280, 720, 110);
+        jScrollPane1.setBounds(120, 270, 720, 110);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CPF do cliente");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(640, 80, 100, 17);
+        jLabel1.setBounds(60, 90, 100, 17);
         jPanel1.add(cpf);
-        cpf.setBounds(750, 80, 130, 22);
+        cpf.setBounds(180, 90, 130, 22);
 
         buscar.setText("Buscar");
         jPanel1.add(buscar);
-        buscar.setBounds(890, 80, 100, 25);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nome:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 130, 50, 17);
+        buscar.setBounds(360, 90, 100, 25);
         jPanel1.add(nome_os);
         nome_os.setBounds(110, 130, 120, 0);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Sobrenome:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(60, 170, 100, 17);
         jPanel1.add(sobrenome_os);
         sobrenome_os.setBounds(150, 170, 100, 0);
 
         remover.setText("Remover");
         jPanel1.add(remover);
-        remover.setBounds(420, 240, 100, 25);
+        remover.setBounds(530, 240, 100, 25);
 
         editar.setText("Editar");
         jPanel1.add(editar);
-        editar.setBounds(530, 240, 100, 25);
+        editar.setBounds(420, 240, 100, 25);
 
-        jButton1.setText("Novo");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(640, 240, 100, 25);
+        novo.setText("Novo");
+        novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(novo);
+        novo.setBounds(640, 240, 100, 25);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1030, 410);
-
-        salvar.setText("Salvar");
-        getContentPane().add(salvar);
-        salvar.setBounds(380, 450, 69, 25);
-
-        cancelar.setText("Cancelar");
-        getContentPane().add(cancelar);
-        cancelar.setBounds(490, 450, 83, 25);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/49142886-vintage-garage-retro-poster.jpg"))); // NOI18N
@@ -163,35 +127,31 @@ public class OS extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dtprevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dtprevistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dtprevistaActionPerformed
-
     private void adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_adicionarActionPerformed
+
+    private void novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoActionPerformed
+   
+           
+           
+// TODO add your handling code here:
+    }//GEN-LAST:event_novoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adicionar;
     private javax.swing.JButton buscar;
-    private javax.swing.JButton cancelar;
     private javax.swing.JTextField cpf;
-    private javax.swing.JFormattedTextField dtprevista;
     private javax.swing.JButton editar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nome_os;
+    private javax.swing.JButton novo;
     private javax.swing.JButton remover;
-    private javax.swing.JButton salvar;
     private javax.swing.JLabel sobrenome_os;
     private javax.swing.JTable tb_pecas;
-    private javax.swing.JComboBox<String> tipo_pagamento;
     // End of variables declaration//GEN-END:variables
 }

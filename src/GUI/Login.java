@@ -57,18 +57,27 @@ public class Login extends javax.swing.JInternalFrame {
         jPasswordField1.setBounds(110, 110, 180, 22);
 
         entrar.setText("Entrar");
+        entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(entrar);
         entrar.setBounds(370, 110, 67, 25);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(100, 220, 600, 250);
+        jPanel1.setBounds(20, 80, 600, 250);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/garage-mechanic-on-duty-vintage-posters-adornment.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 719);
+        jLabel1.setBounds(-90, -250, 760, 719);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
+        
+    }//GEN-LAST:event_entrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

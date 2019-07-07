@@ -9,12 +9,12 @@ package GUI;
  *
  * @author aliso
  */
-public class Veículo extends javax.swing.JInternalFrame {
+public class Veiculo extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Veículo
      */
-    public Veículo() {
+    public Veiculo() {
         initComponents();
     }
 

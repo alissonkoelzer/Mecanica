@@ -13,31 +13,34 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class ConnectionFactory {
-    
+
 //   Atributos
     final private String SERVIDOR = "localhost";
     final private String PORT = "3306";
     final private String DRIVER = "com.mysql.jdbc.Driver";
-    final private String DATABASE = "banco_poo";
+    final private String DATABASE = "oficina_mecanica";
     final private String USER = "root";
     final private String PASS = "";
     final private String URL = "jdbc:mysql://" + SERVIDOR + ":" + PORT + "/" + DATABASE;
+    private static  Connection conexao;
 
-    
     public Connection getConnection() {
+
         try {
-            Class.forName(DRIVER);
-            return DriverManager.getConnection(URL, USER, PASS);
-            
+            if (conexao == null) {
+                Class.forName(DRIVER);
+                conexao = DriverManager.getConnection(URL, USER, PASS);
+
+            }
+            return conexao;
         } catch (ClassNotFoundException | SQLException erro) {
             throw new RuntimeException("ERROR! Conexão não efetuada: ", erro);
         }
     }
-    
-    public static void closeConnection(Connection con){
-        try { 
+
+    public static void closeConnection(Connection con) {
+        try {
             if (con != null) {
                 con.close();
             }
@@ -45,12 +48,12 @@ public class ConnectionFactory {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static void closeConnection(Connection con, PreparedStatement stsm){
-        
+
+    public static void closeConnection(Connection con, PreparedStatement stsm) {
+
         closeConnection(con);
-        
-        try { 
+
+        try {
             if (stsm != null) {
                 stsm.close();
             }
@@ -58,12 +61,12 @@ public class ConnectionFactory {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static void closeConnection(Connection con, PreparedStatement stsm, ResultSet rs){
-        
+
+    public static void closeConnection(Connection con, PreparedStatement stsm, ResultSet rs) {
+
         closeConnection(con, stsm);
-        
-        try { 
+
+        try {
             if (rs != null) {
                 rs.close();
             }

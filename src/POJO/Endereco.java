@@ -1,15 +1,22 @@
 package POJO;
 
-public class Endereco {
-/*atributo*/
+public class Endereco extends GereniarBanco {
+
+    {
+        nomeTabela = "tb_endereco";
+        InicioCampo = "end_";
+        pkField = "codigo";
+        cls = Endereco.class;
+    }
+    /*atributo*/
     private int codigo;
     private String descricao;
     private String UF;
     private String bairro;
     private String cidade;
     private String numero;
-    /*construtor*/
 
+    /*construtor*/
     public Endereco() {
     }
 
@@ -21,8 +28,8 @@ public class Endereco {
         this.cidade = cidade;
         this.numero = numero;
     }
-     /*Gets and Sets*/
 
+    /*Gets and Sets*/
     public int getCodigo() {
         return codigo;
     }
@@ -70,5 +77,5 @@ public class Endereco {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    
+
 }

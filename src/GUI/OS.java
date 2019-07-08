@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.Home.PainelPri;
 import javax.swing.JDesktopPane;
 
 /**
@@ -132,8 +133,11 @@ public class OS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_adicionarActionPerformed
 
     private void novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoActionPerformed
-   
-           
+        CriarOS criarOS = new CriarOS();
+        this.setVisible(false);
+        Home.padrao(criarOS);
+        
+       
            
 // TODO add your handling code here:
     }//GEN-LAST:event_novoActionPerformed

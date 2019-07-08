@@ -53,6 +53,8 @@ public class CriarOS extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
+        getContentPane().setLayout(new java.awt.GridLayout());
+
         jPanel1.setLayout(null);
 
         jLabel2.setText("Data de entrada");
@@ -156,27 +158,18 @@ public class CriarOS extends javax.swing.JInternalFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cartel-oxidado-accion-photoshop.jpg"))); // NOI18N
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(0, 0, 680, 480);
+        jLabel8.setBounds(0, 0, 780, 550);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BCMouseClicked
-        BuscaCliente bc = new BuscaCliente();
+      /*  BuscaCliente bc = new BuscaCliente();
         bc.setClosable(true);
         bc.setVisible(true);
-        bc.setSelected(500, 500);
+        bc.setSelected(500, 500);*/
         
         
     }//GEN-LAST:event_BCMouseClicked

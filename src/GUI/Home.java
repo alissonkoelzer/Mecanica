@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author aliso
@@ -16,7 +18,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-   
+
     }
 
     /**
@@ -106,12 +108,12 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseClicked
-       Estoque e = new Estoque();
-       e.setClosable(true);
-       e.setVisible(true);
-       e.setSize(950, 600);
-       PainelPri.add(e);
-       
+        Estoque e = new Estoque();
+        e.setClosable(true);
+        e.setVisible(true);
+        e.setSize(950, 600);
+        PainelPri.add(e);
+
     }//GEN-LAST:event_EstoqueMouseClicked
 
     private void FornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FornecedorMouseClicked
@@ -120,7 +122,7 @@ public class Home extends javax.swing.JFrame {
         f.setVisible(true);
         f.setSize(1200, 800);
         PainelPri.add(f);
-        
+
     }//GEN-LAST:event_FornecedorMouseClicked
 
     private void OSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OSMouseClicked
@@ -133,20 +135,26 @@ public class Home extends javax.swing.JFrame {
 
     private void VeiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VeiculoMouseClicked
         Veiculo v = new Veiculo();
-        v.setClosable(true);
-        v.setVisible(true);
+
+        padrao(v);
         v.setSize(700, 500);
-        PainelPri.add(v);
-        
     }//GEN-LAST:event_VeiculoMouseClicked
 
     private void ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseClicked
         Cliente c = new Cliente();
-        c.setClosable(true);
-        c.setVisible(true);
+        padrao(c);
+
         c.setSize(800, 400);
-        PainelPri.add(c);
+
     }//GEN-LAST:event_ClienteMouseClicked
+
+    public static void padrao(JInternalFrame frame) {
+        frame.setClosable(true);
+        frame.setVisible(true);
+        frame.setSize(800, 400);
+        PainelPri.add(frame);
+
+    }
 
     /**
      * @param args the command line arguments
@@ -188,7 +196,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu Estoque;
     private javax.swing.JMenu Fornecedor;
     private javax.swing.JMenu OS;
-    private javax.swing.JDesktopPane PainelPri;
+    public static javax.swing.JDesktopPane PainelPri;
     private javax.swing.JMenu Veiculo;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

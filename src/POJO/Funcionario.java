@@ -23,8 +23,8 @@ public class Funcionario extends Pessoa{
         this.porcetagemComicao = porcetagemComicao;
     }
 
-    public Funcionario(int CTPS, float Salario, String Senha, float custoporhora, float porcetagemComicao, int codigo, String nome, int cpf, int telefone, LocalDate datadenascimento, Endereco endereco, String sexo, int RG) {
-        super(codigo, nome, cpf, telefone, datadenascimento, endereco, sexo, RG);
+    public Funcionario(int CTPS, float Salario, String Senha, float custoporhora, float porcetagemComicao, int codigo, String nome, String cpf, String telefone, LocalDate datadenascimento, Endereco endereco, String sexo, String RG) {
+        super.Pessoa(codigo, nome, cpf, telefone, datadenascimento, endereco, sexo, RG,"");
         this.CTPS = CTPS;
         this.Salario = Salario;
         this.Senha = Senha;

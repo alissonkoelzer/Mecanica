@@ -1,37 +1,47 @@
 package POJO;
 
+import java.lang.reflect.Field;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Pessoa{
+public class Pessoa extends GereniarBanco {
 
+    {
+        nomeTabela = "tb_pessoa";
+        InicioCampo = "pes_";
+        pkField = "codigo";
+        cls = Pessoa.class;
+    }
     /*Atributos*/
-    private int codigo;
+    private Integer codigo;
     private String nome;
-    private int cpf;
-    private int telefone;
-    private LocalDate datadenascimento;
-    private Endereco endereco;
+    private String cpf;
+    private String telefone;
+    private LocalDate data_nascimento;
+    private Endereco codendereco;
     private String sexo;
-    private int RG;
+    private String RG;
+    private String email;
 
-    
-    /*Construtor*/    
+    /*Construtor*/
     public Pessoa() {
     }
 
-    public Pessoa(int codigo, String nome, int cpf, int telefone, LocalDate datadenascimento, Endereco endereco, String sexo, int RG) {
+    public void Pessoa(int codigo, String nome, String cpf, String telefone, LocalDate datadenascimento, Endereco endereco, String sexo, String RG, String email) {
         this.codigo = codigo;
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.datadenascimento = datadenascimento;
-        this.endereco = endereco;
+        this.data_nascimento = datadenascimento;
+        this.codendereco = endereco;
         this.sexo = sexo;
         this.RG = RG;
+        this.email = email;
     }
-    
-    
-    
+
     /*Minhas Funções*/
     public boolean validarcpf() {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -43,10 +53,8 @@ public class Pessoa{
 
     public void notivicarAniver() {
     }
-    
-    
-    /*Gets and Sets*/
 
+    /*Gets and Sets*/
     public int getCodigo() {
         return codigo;
     }
@@ -63,36 +71,36 @@ public class Pessoa{
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
     public LocalDate getDatadenascimento() {
-        return datadenascimento;
+        return data_nascimento;
     }
 
     public void setDatadenascimento(LocalDate datadenascimento) {
-        this.datadenascimento = datadenascimento;
+        this.data_nascimento = datadenascimento;
     }
 
     public Endereco getEndereco() {
-        return endereco;
+        return codendereco;
     }
 
     public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+        this.codendereco = endereco;
     }
 
     public String getSexo() {
@@ -103,13 +111,43 @@ public class Pessoa{
         this.sexo = sexo;
     }
 
-    public int getRG() {
+    public String getRG() {
         return RG;
     }
 
-    public void setRG(int RG) {
+    public void setRG(String RG) {
         this.RG = RG;
     }
-    
-    
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Object getfiled(Field field) throws Exception {
+        return field.get(this);
+    }
+
+    @Override
+    public Object carregadados(ResultSet rs) {
+        try {
+            super.carregadados(rs); //To change body of generated methods, choose Tools | Templates.
+            this.codendereco = new Endereco();
+            this.codendereco.carregadadosID(rs.getInt("pes_codendereco"));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Pessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return this;
+    }
+
 }
